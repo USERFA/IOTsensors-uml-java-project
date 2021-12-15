@@ -8,6 +8,7 @@ package GUI;
 import java.sql.SQLException;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import uml_java_2021_project.DB.CRUD_HR;
 import uml_java_2021_project.Model.HR;
 
@@ -270,9 +271,11 @@ public class HealthRecord extends javax.swing.JFrame {
                 if(jTextArea3.getText()==null){
                     System.out.println("details is empty");
                 }
-                HR h = new HR(jTextField1.getText(), jTextField2.getText(), t.getText(), Float.parseFloat(jTextField3.getText()), Float.parseFloat(jTextField4.getText()), ds, ds2, jTextArea1.getText(), jTextArea2.getText(), jTextArea3.getText());
+                HR h = new HR(jTextField1.getText(), jTextField2.getText(), t.getText(), Float.parseFloat(jTextField4.getText()), Float.parseFloat(jTextField3.getText()), ds, ds2, jTextArea1.getText(), jTextArea2.getText(), jTextArea3.getText());
                 hr.add_HR(h);
                 System.out.println("Insertion of HR is done!");
+                JOptionPane.showMessageDialog(this, "Health record added!", "INFORMATION", JOptionPane.INFORMATION_MESSAGE);
+
             } catch (SQLException e) {
                 System.out.println(e.getMessage());
             }

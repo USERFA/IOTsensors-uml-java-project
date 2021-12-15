@@ -18,6 +18,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
+import javax.swing.plaf.OptionPaneUI;
 
 /**
  *
@@ -58,18 +59,25 @@ public class Server_doc extends Thread {
                 System.out.println(confirm_state);
                 if (Boolean.parseBoolean(confirm_state)) {
                     is_confirmed_by_client = true;
+                    out.println("the doctor is analyzing your test! hold on");
+                    out.flush();
                     Test_interface t = new Test_interface();
                     t.setVisible(true);
                     t.setLocationRelativeTo(null);
                     t.setResizable(false);
                     t.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-//                    if (Test_interface.accept_patient_is_clicked) {
-//                        out.println("You've been accepted by the doc\n");
-//                        out.flush();
-//                    } else if (Test_interface.refuse_patient_is_clicked) {
-//                        out.println("You should go take more test in the covid testing building\n");
-//                        out.flush();
-//                    }
+                    String[] options = {"Accept patient", "Patient may be infected"};
+                    int x = JOptionPane.showOptionDialog(null, "Take decision", "Click a button", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
+                    if (x == 0) {
+                        String send = "You've been accepted by the doctor";
+                        out.println(send);
+                        out.flush();
+                    }
+                    if (x == 1) {
+                        String send = "You need to take the PCR test to make sure you're not infected by the virus";
+                        out.println(send);
+                        out.flush();
+                    }
                 } else {
                     is_confirmed_by_client = false;
                 }

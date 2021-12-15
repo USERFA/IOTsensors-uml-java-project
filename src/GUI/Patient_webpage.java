@@ -5,7 +5,10 @@
  */
 package GUI;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.net.Socket;
@@ -23,11 +26,11 @@ public class Patient_webpage extends javax.swing.JFrame {
      * Creates new form Patient_webpage
      */
     boolean confirmed;
- 
+
     public Patient_webpage() {
         initComponents();
     }
-   
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -236,14 +239,20 @@ public class Patient_webpage extends javax.swing.JFrame {
                 Socket soc = new Socket(hote, port);
                 OutputStream flux1;
                 flux1 = soc.getOutputStream();
-                String prenom = JOptionPane.showInputDialog(null, "Input your name : ",
-                        "", 1);
+                String prenom = JOptionPane.showInputDialog(null, "Input your name : ", "", 1);
                 String nickname = prenom;
                 PrintWriter out = new PrintWriter(soc.getOutputStream(), true);
                 out.println(nickname);
                 out.flush();
                 out.println(String.valueOf(confirmed));
                 out.flush();
+                InputStream f = soc.getInputStream();
+                BufferedReader entree = new BufferedReader(new InputStreamReader(f));
+                String response = entree.readLine();
+                JOptionPane.showMessageDialog(this, response, "Wait", JOptionPane.INFORMATION_MESSAGE);
+                 response = entree.readLine();
+                JOptionPane.showMessageDialog(this, response, "Doctor response", JOptionPane.INFORMATION_MESSAGE);
+
             } catch (IOException ex) {
                 Logger.getLogger(Patient_webpage.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -294,6 +303,7 @@ public class Patient_webpage extends javax.swing.JFrame {
                 d.setVisible(true);
                 d.setLocationRelativeTo(null);
                 d.setResizable(false);
+                d.setTitle("Welcome patient!");
             }
         });
     }

@@ -45,7 +45,6 @@ public class CRUD_HR {
         String query = "select * from health_record";
         ResultSet rs = stmt.executeQuery(query);
         while (rs.next()) {
-            String id = rs.getString("id_hr");
             String first_name = rs.getString("first_name");
             String last_name = rs.getString("last_name");
             String gender = rs.getString("gender");
@@ -85,7 +84,7 @@ public class CRUD_HR {
         java.sql.Date ds = new java.sql.Date(h.getBirthdate().getTime());
         java.sql.Date ds2 = new java.sql.Date(h.getDate_visit().getTime());
 
-        String query = "insert into health_record(first_name, last_name,gender, weight, height, birthdate, visit_date, diagnostic, treatment, details) values ('" + h.getFirst_name() + "','" + h.getLast_name() + "','" + h.getWeight() + "','" + h.getHeight() + "','" + h.getGender() + ds + "','" + ds2 + "','" + h.getDiagnostic() + "','" + h.getTreatment() + "','" + h.getDetails() + "')";
+        String query = "insert into health_record(first_name, last_name,gender,weight,height,birthdate,visit_date,diagnostic,treatment,details) values ('" + h.getFirst_name() + "','" + h.getLast_name() + "','" + h.getHeight() + "','" + h.getWeight() + "','" + h.getGender() +"','"+ ds + "','" + ds2 + "','" + h.getDiagnostic() + "','" + h.getTreatment() + "','" + h.getDetails() + "')";
         int nbUpdated = stmt.executeUpdate(query);
         return nbUpdated != 0;
     }

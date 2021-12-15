@@ -7,6 +7,7 @@ package GUI;
 
 import java.sql.Date;
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
 import uml_java_2021_project.DB.CRUD_appointment;
 import uml_java_2021_project.Model.Appointment;
 
@@ -189,7 +190,7 @@ public class Appoitnment_form extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try {
             CRUD_appointment appo = new CRUD_appointment();
-            String fist_visit=new String("");
+            String fist_visit = new String("");
             String gender = new String("");
             if (evt.getSource() == jButton1) {
                 if (male.isSelected()) {
@@ -198,14 +199,16 @@ public class Appoitnment_form extends javax.swing.JFrame {
                     gender = "Female";
                 }
                 if (first_visit.isSelected()) {
-                    fist_visit="Yes";
+                    fist_visit = "Yes";
                 } else if (not_first_visit.isSelected()) {
-                    fist_visit="No";
+                    fist_visit = "No";
                 }
                 java.sql.Date ds = new java.sql.Date(jDateChooser1.getDate().getTime());
-                Appointment p = new Appointment(jTextField1.getText(), Integer.parseInt(jTextField2.getText()), gender, jTextField3.getText(), fist_visit, jTextArea1.getText(),ds);
+                Appointment p = new Appointment(jTextField1.getText(), Integer.parseInt(jTextField2.getText()), gender, jTextField3.getText(), fist_visit, jTextArea1.getText(), ds);
                 p.toString();
                 appo.add_appointment(p);
+                JOptionPane.showMessageDialog(this, "Appointment added!", "INFORMATION", JOptionPane.INFORMATION_MESSAGE);
+
             }
         } catch (SQLException ex) {
             System.out.println(ex);

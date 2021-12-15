@@ -64,14 +64,13 @@ public class CRUD_appointment {
         String query = "select * from appointment where patient_name like '" + name + "'";
         ResultSet rs = stmt.executeQuery(query);
         while (rs.next()) {
-            String patient_name = name;
             int age = rs.getInt("Age");
             String gender = rs.getString("gender");
             String tel = rs.getString("tel");
             String is_first_visit = rs.getString("is_first_visit");
             String details = rs.getString("Details");
             Date d = rs.getDate("DateOfApp");
-            Appointment a = new Appointment(patient_name, age, gender, tel, is_first_visit, details, d);
+            Appointment a = new Appointment(name, age, gender, tel, is_first_visit, details, d);
             return a;
         }
         return null;

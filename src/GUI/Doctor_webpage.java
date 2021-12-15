@@ -17,13 +17,16 @@ import uml_java_2021_project.Model.Patient;
 import uml_java_2021_project.Model.Server_doc;
 import uml_java_2021_project.controller.access_control;
 
+
 /**
  *
  * @author Fadwa
  */
 public class Doctor_webpage extends javax.swing.JFrame {
 
+    static CRUD_appointment p ;
     static boolean is_confirmed_by_client;
+    static  String strapp;
 
     /**
      * Creates new form Doctor_webpage
@@ -302,28 +305,35 @@ public class Doctor_webpage extends javax.swing.JFrame {
                     String nom = JOptionPane.showInputDialog(null, "saisir nouveau nom : ",
                             "Modify patient", 1);
                     p.modify_patient_nom(str, nom);
+                    JOptionPane.showMessageDialog(this, "Patient modifed", "INFORMATION", JOptionPane.INFORMATION_MESSAGE);
+
                 }
                 if (x == 1) {
                     String prenom = JOptionPane.showInputDialog(null, "saisir nouveau prenom : ",
                             "Modify patient", 1);
                     p.modify_patient_prenom(person, prenom);
+                    JOptionPane.showMessageDialog(this, "Patient modifed", "INFORMATION", JOptionPane.INFORMATION_MESSAGE);
+
                 }
                 if (x == 2) {
                     String CIN = JOptionPane.showInputDialog(null, "saisir nouvelle CIN : ",
                             "Modify patient", 1);
                     p.modify_patient_CIN(person, CIN);
+                    JOptionPane.showMessageDialog(this, "Patient modifed", "INFORMATION", JOptionPane.INFORMATION_MESSAGE);
 
                 }
                 if (x == 3) {
                     String tel = JOptionPane.showInputDialog(null, "saisir nouveau tel : ",
                             "Modify patient", 1);
                     p.modify_patient_tel(person, tel);
+                    JOptionPane.showMessageDialog(this, "Patient modifed", "INFORMATION", JOptionPane.INFORMATION_MESSAGE);
 
                 }
                 if (x == 4) {
                     String email = JOptionPane.showInputDialog(null, "saisir nouveau email : ",
                             "Modify patient", 1);
                     p.modify_patient_email(person, email);
+                    JOptionPane.showMessageDialog(this, "Patient modifed", "INFORMATION", JOptionPane.INFORMATION_MESSAGE);
 
                 }
 
@@ -349,8 +359,16 @@ public class Doctor_webpage extends javax.swing.JFrame {
                         "Delete patient", 1);
                 System.out.println(str);
                 if (str != null) {
-                    d.delete_patient((String) str);
-                    System.out.println(str + " was deleted");
+                    String[] options = {"Yes", "No"};
+                    int x = JOptionPane.showOptionDialog(null, "Are you sure you want to delete this patient",
+                            "", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
+                    if (x == 0) {
+                        d.delete_patient((String) str);
+                        System.out.println(str + " was deleted");
+                        JOptionPane.showMessageDialog(this, "Patient deleted", "INFORMATION", JOptionPane.INFORMATION_MESSAGE);
+                    } else {
+                        JOptionPane.showMessageDialog(this, "The deletion process is stopped", "INFORMATION", JOptionPane.INFORMATION_MESSAGE);
+                    }
                 } else {
                     System.out.println("You should input your patient's CIN first to delete it");
 
@@ -383,6 +401,7 @@ public class Doctor_webpage extends javax.swing.JFrame {
                 if (str != null) {
                     p.delete_appointment((String) str);
                     System.out.println(str + " was deleted");
+                    JOptionPane.showMessageDialog(this, "Appointment deleted!", "INFORMATION", JOptionPane.INFORMATION_MESSAGE);
 
                 }
             } catch (SQLException ex) {
@@ -439,21 +458,23 @@ public class Doctor_webpage extends javax.swing.JFrame {
 
     private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
         if (evt.getSource() == jMenuItem8) {
-            String str = JOptionPane.showInputDialog(null, "Enter patient_name : ",
+            strapp = JOptionPane.showInputDialog(null, "Enter patient_name : ",
                     "Modify appointment's date", 1);
-            if (str != null) {
+            if (strapp != null) {
                 try {
-                    CRUD_appointment p = new CRUD_appointment();
-                    Appointment ap = p.get_app_by_patient_name(str);
-                    datePicker da = new datePicker();
+                    p = new CRUD_appointment();
+                    Appointment ap = p.get_app_by_patient_name(strapp);
+                    dp da = new dp();
                     da.setVisible(true);
                     da.setLocationRelativeTo(null);
                     da.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-                    if (da.getjButton1().isSelected()) {
-                        java.sql.Date d = new java.sql.Date(da.getDatechooser().getDate().getTime());
-                        p.modify_appointment_date(str, d);
 
-                    }
+//                    if (da.getjButton1().isSelected()) {
+//                        java.sql.Date d = new java.sql.Date(da.getDt().getTime());
+//                        p.modify_appointment_date(str, d);
+//                        JOptionPane.showMessageDialog(this, "Appointment modified!", "Information", JOptionPane.INFORMATION_MESSAGE);
+//
+//                    }
                 } catch (SQLException ex) {
                     Logger.getLogger(Doctor_webpage.class
                             .getName()).log(Level.SEVERE, null, ex);
@@ -474,7 +495,6 @@ public class Doctor_webpage extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_jMenuItem10ActionPerformed
-
 
     /**
      * @param args the command line arguments

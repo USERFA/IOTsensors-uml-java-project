@@ -40,7 +40,7 @@ public class About extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(153, 204, 255));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/b.jpg"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Hp_ProBook\\Desktop\\COURSES\\Snippets\\Projet OOP\\b.jpg")); // NOI18N
         jLabel1.setText("jLabel1");
 
         jLabel3.setText("About us:");

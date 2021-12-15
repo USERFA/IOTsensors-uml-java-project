@@ -20,7 +20,7 @@ public class Read_from_file {
 
     public static String get_random_temperature() {
         try {
-            Scanner x = new Scanner(new File("C:\\Temperature_data.txt"));
+            Scanner x = new Scanner(new File("C:\\Users\\Hp_ProBook\\Desktop\\COURSES\\Snippets\\Projet OOP\\Temperature_data.txt"));
             if (!x.hasNext()) {
                 System.out.println("This file does not exist");
             }
@@ -40,7 +40,7 @@ public class Read_from_file {
 
     public static String get_random_heartrate() {
         try {
-            Scanner x = new Scanner(new File("C:\\Heart_rate_data.txt"));
+            Scanner x = new Scanner(new File("C:\\Users\\Hp_ProBook\\Desktop\\COURSES\\Snippets\\Projet OOP\\Heart_rate_data.txt"));
             if (!x.hasNext()) {
                 System.out.println("This file does not exist");
             }

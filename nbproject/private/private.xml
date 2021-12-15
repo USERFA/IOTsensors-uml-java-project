@@ -4,18 +4,12 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/Hp_ProBook/Documents/NetBeansProjects/UML_JAVA_2021_PROJECT/src/GUI/Appoitnment_form.java</file>
-            <file>file:/C:/Users/Hp_ProBook/Documents/NetBeansProjects/UML_JAVA_2021_PROJECT/src/GUI/appointments_list.java</file>
-            <file>file:/C:/Users/Hp_ProBook/Documents/NetBeansProjects/UML_JAVA_2021_PROJECT/src/GUI/Patient_form.java</file>
-            <file>file:/C:/Users/Hp_ProBook/Documents/NetBeansProjects/UML_JAVA_2021_PROJECT/src/GUI/Test_interface.java</file>
-            <file>file:/C:/Users/Hp_ProBook/Documents/NetBeansProjects/UML_JAVA_2021_PROJECT/src/uml_java_2021_project/Model/Test.java</file>
-            <file>file:/C:/Users/Hp_ProBook/Documents/NetBeansProjects/UML_JAVA_2021_PROJECT/src/uml_java_2021_project/Model/Bill.java</file>
             <file>file:/C:/Users/Hp_ProBook/Documents/NetBeansProjects/UML_JAVA_2021_PROJECT/src/uml_java_2021_project/Model/Server_doc.java</file>
             <file>file:/C:/Users/Hp_ProBook/Documents/NetBeansProjects/UML_JAVA_2021_PROJECT/src/GUI/Patient_webpage.java</file>
-            <file>file:/C:/Users/Hp_ProBook/Documents/NetBeansProjects/UML_JAVA_2021_PROJECT/src/GUI/paymentform.java</file>
-            <file>file:/C:/Users/Hp_ProBook/Documents/NetBeansProjects/UML_JAVA_2021_PROJECT/src/GUI/datePicker.java</file>
             <file>file:/C:/Users/Hp_ProBook/Documents/NetBeansProjects/UML_JAVA_2021_PROJECT/src/GUI/Login_interface.java</file>
-            <file>file:/C:/Users/Hp_ProBook/Documents/NetBeansProjects/UML_JAVA_2021_PROJECT/src/GUI/Doctor_webpage.java</file>
-            <file>file:/C:/Users/Hp_ProBook/Documents/NetBeansProjects/UML_JAVA_2021_PROJECT/src/GUI/About.java</file>
+            <file>file:/C:/Users/Hp_ProBook/Documents/NetBeansProjects/UML_JAVA_2021_PROJECT/src/GUI/HealthRecord.java</file>
+            <file>file:/C:/Users/Hp_ProBook/Documents/NetBeansProjects/UML_JAVA_2021_PROJECT/src/uml_java_2021_project/DB/CRUD_person.java</file>
+            <file>file:/C:/Users/Hp_ProBook/Documents/NetBeansProjects/UML_JAVA_2021_PROJECT/src/GUI/Test_interface.java</file>
         </group>
     </open-files>
 </project-private>

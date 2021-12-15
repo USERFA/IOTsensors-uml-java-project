@@ -6,8 +6,10 @@
 package GUI;
 
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
 import uml_java_2021_project.DB.CRUD_person;
 import uml_java_2021_project.Model.Patient;
+import uml_java_2021_project.Model.User;
 
 /**
  *
@@ -170,9 +172,13 @@ public class Patient_form extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try {
             CRUD_person person = new CRUD_person();
-            if(evt.getSource()==jButton1){
-                Patient patient = new Patient(jTextField6.getText(), jTextField1.getText(), jTextField2.getText(), jTextField3.getText(),jTextField5.getText(),jTextField4.getText());
+            if (evt.getSource() == jButton1) {
+                Patient patient = new Patient(jTextField6.getText(), jTextField1.getText(), jTextField2.getText(), jTextField3.getText(), jTextField5.getText(), jTextField4.getText());
+//                System.out.println((String)jTextField6.getText());
                 person.add_patient(patient);
+                User x = new User(jTextField6.getText(),jTextField1.getText());
+                person.add_login(x);
+                JOptionPane.showMessageDialog(this, "Patient added!", "INFORMATION", JOptionPane.INFORMATION_MESSAGE);
             }
         } catch (SQLException ex) {
             System.out.println(ex);

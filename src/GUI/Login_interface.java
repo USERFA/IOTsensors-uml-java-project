@@ -165,7 +165,7 @@ public class Login_interface extends javax.swing.JFrame {
                     System.out.println("We're here now !");
                     User user1 = person.get_Login(login_input, password_input);
                     if (user1 != null) {
-                        System.out.println("goooooooooooooooooooal");
+//                        System.out.println("goooooooooooooooooooal");
                         JOptionPane.showMessageDialog(this, "Login succesful");
                         this.setVisible(false);
                         if (user1 instanceof Patient) {
@@ -181,7 +181,7 @@ public class Login_interface extends javax.swing.JFrame {
 //                            start();
                         }
                     } else {
-                        System.out.println("shiiiiiiiiiiiiiiiit");
+//                        System.out.println("shiiiiiiiiiiiiiiiit");
                         JOptionPane.showMessageDialog(this, "Login not succesful, try again !!");
                     }
                 }
@@ -232,6 +232,7 @@ public class Login_interface extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Login_interface();
+                
 
             }
         });

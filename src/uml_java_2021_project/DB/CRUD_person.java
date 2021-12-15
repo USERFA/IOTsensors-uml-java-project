@@ -113,6 +113,12 @@ public class CRUD_person {
         int nbUpdated = stmt.executeUpdate(query);
         return nbUpdated != 0;
     }
+    
+    public boolean add_login(User p) throws SQLException{
+        String query = "insert into login(username, password) values ('" + p.getLogin() + "','" + p.getPassword()+ "')";
+        int nbUpdated = stmt.executeUpdate(query);
+        return nbUpdated != 0;
+    }
 
     public boolean delete_patient(String cin) throws SQLException {
         String queryd = "delete from patient where CIN like '" + cin + "'";

@@ -106,7 +106,7 @@ public class Test_interface extends javax.swing.JFrame{
         jLabel8.setIcon(new javax.swing.ImageIcon("C:\\Users\\Hp_ProBook\\Desktop\\COURSES\\Snippets\\Projet OOP\\pl.jpg")); // NOI18N
         jLabel8.setText("jLabel8");
         jPanel2.add(jLabel8);
-        jLabel8.setBounds(-40, 0, 570, 570);
+        jLabel8.setBounds(-40, 0, 570, 450);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
